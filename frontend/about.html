@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About - EventHub</title>
+
+<!-- Bootstrap & Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<!-- Custom Styles -->
+<style>
+body {
+  background-color: #f8f9fa;
+  font-family: "Poppins", sans-serif;
+}
+
+.hero {
+  background: linear-gradient(135deg, #007bff, #6610f2);
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+  border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.hero h1 {
+  font-weight: 700;
+  font-size: 2.8rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease-in-out;
+}
+
+@keyframes fadeUp {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 1rem;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.icon-box {
+  font-size: 2rem;
+  color: #0d6efd;
+  margin-bottom: 15px;
+}
+
+.cta-section {
+  background: #0d6efd;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 30px;
+  margin-top: 60px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+.cta-section h3 { font-weight: 600; }
+
+.btn-glow {
+  background-color: white;
+  color: #0d6efd;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.btn-glow:hover {
+  background-color: #e9ecef;
+  transform: scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html"><i class="fa-solid fa-bolt"></i> EventHub</a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero animate-fade-up">
+  <div class="container">
+    <h1><i class="fa-solid fa-circle-info"></i> About EventHub</h1>
+    <p>Your ultimate destination for campus events, workshops & hackathons.</p>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="py-5">
+  <div class="container animate-fade-up">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold"><i class="fa-solid fa-star"></i> What We Offer</h2>
+      <p class="text-muted">EventHub makes event registration effortless and engaging.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card feature-card p-4 text-center">
+          <div class="icon-box"><i class="fa-solid fa-graduation-cap"></i></div>
+          <h5>Student-Friendly UI</h5>
+          <p class="text-muted">Clean, responsive, and easy to navigate for all age groups.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card feature-card p-4 text-center">
+          <div class="icon-box"><i class="fa-solid fa-calendar-check"></i></div>
+          <h5>Event Management</h5>
+          <p class="text-muted">Register for events, view schedules, and stay updated easily.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card feature-card p-4 text-center">
+          <div class="icon-box"><i class="fa-solid fa-users"></i></div>
+          <h5>Participant Tracking</h5>
+          <p class="text-muted">Keep records of all participants with live registration updates.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card feature-card p-4 text-center">
+          <div class="icon-box"><i class="fa-solid fa-lightbulb"></i></div>
+          <h5>Workshops & Seminars</h5>
+          <p class="text-muted">Join AI, data science, and innovation-focused sessions.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card feature-card p-4 text-center">
+          <div class="icon-box"><i class="fa-solid fa-code"></i></div>
+          <h5>Hackathons</h5>
+          <p class="text-muted">Solve real-world problems with creativity and teamwork.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card feature-card p-4 text-center">
+          <div class="icon-box"><i class="fa-solid fa-network-wired"></i></div>
+          <h5>Networking</h5>
+          <p class="text-muted">Connect with mentors, peers, and industry experts easily.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Section -->
+<section class="py-5 bg-white animate-fade-up">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4"><i class="fa-solid fa-question-circle"></i> Why Choose EventHub?</h2>
+    <p class="lead text-muted mb-5">
+      Because we simplify your event experience — from registration to participation.
+    </p>
+
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="progress mb-3">
+          <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 90%">User Satisfaction 90%</div>
+        </div>
+        <div class="progress mb-3">
+          <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 80%">Event Coverage 80%</div>
+        </div>
+        <div class="progress mb-3">
+          <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 85%">Ease of Use 85%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section animate-fade-up container my-5">
+  <h3>Ready to be part of something amazing?</h3>
+  <p>Join thousands of students who are already using EventHub to explore events!</p>
+  <a href="register.html" class="btn btn-glow btn-lg mt-3"><i class="fa-solid fa-user-plus"></i> Register Now</a>
+</section>
+
+<footer class="bg-dark text-center text-white py-3 mt-5">
+  <small>© 2025 EventHub. All rights reserved.</small>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

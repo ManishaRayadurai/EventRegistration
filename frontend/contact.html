@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact - EventHub</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+body {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-in-out;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#map iframe {
+  width: 100%;
+  height: 300px;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+footer {
+  background-color: #212529;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 30px;
+}
+footer a {
+  color: #ffc107;
+  text-decoration: none;
+}
+
+/* 🌟 Quote Section Fix */
+.quote-section {
+  background-color: #ffffff;
+  padding: 60px 0;
+  border-top: 2px solid #e9ecef;
+  border-bottom: 2px solid #e9ecef;
+  text-align: center;
+}
+.quote-section h4 {
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #212529;
+}
+.quote-section blockquote {
+  background-color: transparent !important;
+  color: #111 !important;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  border: none;
+  margin: 0 auto;
+  width: 80%;
+}
+.quote-section footer {
+  color: #555 !important;
+  margin-top: 10px;
+  font-style: italic;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fa-solid fa-calendar-check"></i> EventHub</a>
+  </div>
+</nav>
+
+<!-- Contact Section -->
+<section class="py-5 bg-light">
+  <div class="container animate-fade-up">
+    <h2 class="mb-4 text-center"><i class="fa-solid fa-envelope"></i> Contact Us</h2>
+    <div class="row">
+      
+      <!-- Contact Form -->
+      <div class="col-md-6 mb-4">
+        <form id="contactForm">
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" id="name" class="form-control" placeholder="Your name" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" id="email" class="form-control" placeholder="your@email.com" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea id="message" class="form-control" rows="5" placeholder="Your message here..." required></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-lg">
+              <i class="fa-solid fa-paper-plane"></i> Send
+            </button>
+          </div>
+          <div id="contactMsg" class="mt-3 text-center fw-semibold"></div>
+        </form>
+      </div>
+
+      <!-- Contact Details + Map -->
+      <div class="col-md-6">
+        <h5><i class="fa-solid fa-location-dot"></i> Address:</h5>
+        <p>123 Campus Drive, Bengaluru, India</p>
+        <h5><i class="fa-solid fa-phone"></i> Phone:</h5>
+        <p>+91 9876543210</p>
+        <h5><i class="fa-solid fa-envelope"></i> Email:</h5>
+        <p>contact@eventhub.com</p>
+
+        <!-- Map Embed -->
+        <div id="map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.0230218970747!2d77.5946!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670df07b9a1%3A0x9c3e6d6e9f6c3d1!2sBangalore!5e0!3m2!1sen!2sin!4v1687611800000!5m2!1sen!2sin"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Inspirational Quote -->
+<section class="quote-section">
+  <div class="container">
+    <h4><i class="fa-solid fa-quote-left"></i> Today's Inspiration</h4>
+    <div id="quote">Loading quote...</div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 <strong>EventHub</strong>. Built with ❤️ by the EventHub Team.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// Contact Form Handler
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  document.getElementById("contactMsg").innerHTML = "<span class='text-success'>✅ Message sent successfully!</span>";
+  this.reset();
+});
+
+// Load Daily Quote
+async function loadQuote() {
+  const quoteBox = document.getElementById("quote");
+  try {
+    const res = await fetch("https://api.quotable.io/random");
+    if (!res.ok) throw new Error("Failed to load");
+    const data = await res.json();
+    quoteBox.innerHTML = `
+      <blockquote class="blockquote">
+        “${data.content}”
+        <footer class="blockquote-footer">${data.author}</footer>
+      </blockquote>
+    `;
+  } catch {
+    const localQuotes = [
+      { content: "Success is not final; failure is not fatal.", author: "Winston Churchill" },
+      { content: "Dream big. Work hard. Stay humble.", author: "Unknown" },
+      { content: "The best way to predict the future is to create it.", author: "Peter Drucker" },
+      { content: "Every expert was once a beginner.", author: "Helen Hayes" },
+      { content: "Believe you can and you’re halfway there.", author: "Theodore Roosevelt" }
+    ];
+    const q = localQuotes[Math.floor(Math.random() * localQuotes.length)];
+    quoteBox.innerHTML = `
+      <blockquote class="blockquote">
+        “${q.content}”
+        <footer class="blockquote-footer">${q.author}</footer>
+      </blockquote>
+    `;
+  }
+}
+loadQuote();
+</script>
+
+</body>
+</html>

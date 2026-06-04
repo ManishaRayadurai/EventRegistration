@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Participants - EventHub</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<style>
+body {
+  background-color: #f8f9fa;
+  font-family: "Poppins", sans-serif;
+}
+.table {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.btn-back {
+  background: linear-gradient(90deg, #007bff, #6610f2);
+  border: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+.btn-back:hover {
+  transform: scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">EventHub</a>
+  </div>
+</nav>
+
+<section class="py-5">
+  <div class="container">
+    <h3 class="text-center mb-4"><i class="fa-solid fa-users"></i> Registered Participants</h3>
+    <div id="count" class="text-center mb-3 fw-bold text-primary"></div>
+
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered align-middle text-center">
+        <thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>College</th>
+            <th>Event</th>
+            <th>Place</th>
+          </tr>
+        </thead>
+        <tbody id="participantsTable"></tbody>
+      </table>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="register.html" class="btn btn-back"><i class="fa-solid fa-user-plus"></i> Add Another Registration</a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-dark text-white text-center py-3 mt-5">
+  <small>© 2025 EventHub. Built with ❤️ by the EventHub Team.</small>
+</footer>
+
+<script>
+window.onload = function() {
+  const participants = JSON.parse(localStorage.getItem('participants') || '[]');
+  const table = document.getElementById('participantsTable');
+  const count = document.getElementById('count');
+
+  if (participants.length === 0) {
+    table.innerHTML = `<tr><td colspan="7" class="text-muted">No participants registered yet.</td></tr>`;
+    count.innerHTML = "Total Registered: 0";
+    return;
+  }
+
+  table.innerHTML = ""; // Clear existing rows first
+  participants.forEach((p, index) => {
+    const row = `
+      <tr>
+        <td>${index + 1}</td>
+        <td>${p.name}</td>
+        <td>${p.email}</td>
+        <td>${p.phone}</td>
+        <td>${p.college}</td>
+        <td>${p.eventName}</td>
+        <td>${p.place}</td>
+      </tr>
+    `;
+    table.innerHTML += row;
+  });
+
+  count.innerHTML = `Total Registered Participants: ${participants.length}`;
+};
+</script>
+</body>
+</html>

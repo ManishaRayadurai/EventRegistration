@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "AI & Data Science Workshop",
+    "date": "2025-12-01",
+    "venue": "Main Hall",
+    "capacity": 100
+  },
+  {
+    "id": 2,
+    "title": "Hackathon: Build for Good",
+    "date": "2025-12-15",
+    "venue": "Lab 2",
+    "capacity": 200
+  }
+]
